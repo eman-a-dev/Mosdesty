@@ -11,7 +11,10 @@
     <!-- NAVBAR CONTENT SECTION -->
     <nav>
         <img src="images/LOGO.png" class="logo" alt="">
-        <ul>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <ul id="navMenu">
             <li><a href="#" class="navlink" >Home</a></li>
             <li><a href="#collect" class="navlink">Collection</a></li>
             <li><a href="#services" class="navlink">Services</a></li>
@@ -45,46 +48,43 @@
     </div>
     <div class="collection">
     <figure>
-        <img src="images/collection-img-1.png" alt="">
+        <img src="images/collection-img-1.png" alt="Georgette hijab">
         <figcaption>
              <a href="#"><h6>GEORGETTE</h6></a>
              <p>Best Quality Hijabs</p>
         </figcaption>
-    </figcaption>
-    <div class="figtext-g" >
-        <a href="">Georgette Hijabs</a>
-    </div>
+        <div class="figtext-g">
+            <a href="#">Georgette Hijabs</a>
+        </div>
     </figure>
-        <figure>
-        <img src="images/collection-img-2.png" alt="">
+    <figure>
+        <img src="images/collection-img-2.png" alt="Chiffon silk hijab">
         <figcaption>
             <a href="#"><h6>CHIFFON SILK</h6></a>
              <p>Best Quality Hijabs</p>
         </figcaption>
-    </figcaption>
-    <div class="figtext">
-        <a href="">Silk Hijabs</a>
-    </div>
+        <div class="figtext">
+            <a href="#">Silk Hijabs</a>
+        </div>
     </figure>
     <figure>
-        <img src="images/collection-img-3.png" alt="">
+        <img src="images/collection-img-3.png" alt="Crinkle crimps hijab">
         <figcaption>
-            <a href="#"><h6>CRINKLE CRIMPS</h6></a>Crinkle Crimps
+            <a href="#"><h6>CRINKLE CRIMPS</h6></a>
              <p>Best Quality Hijabs</p>
-            </figcaption>
-            <div class="figtext">
-                <a href="">Crinkle Hijabs</a>
-            </div>
         </figcaption>
+        <div class="figtext">
+            <a href="#">Crinkle Hijabs</a>
+        </div>
     </figure>
     <figure>
-        <img src="images/collection-img-4.webp" alt="">
+        <img src="images/collection-img-4.webp" alt="Lawn hijab">
         <figcaption>
             <a href="#"><h6>LAWN</h6></a>
              <p>Best Quality Hijabs</p>
         </figcaption>
         <div class="figtext">
-            <a href="">Lawn Hijabs</a>
+            <a href="#">Lawn Hijabs</a>
         </div>
     </figure>
 </div>
@@ -257,5 +257,24 @@
     Copyright &copy; 2026 Modesty. All rights reserved.
   </div>
 </footer>
+
+<script>
+    // Mobile nav toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked (mobile UX)
+    document.querySelectorAll('.navlink').forEach((link) => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        });
+    });
+</script>
 </body>
 </html>

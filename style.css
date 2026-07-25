@@ -21,8 +21,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     z-index: 9999;
-    background-color: #2a1d16;
-    opacity: 0.3;
+    background-color: rgba(42, 29, 22, 0.85);
     
 }
 .logo{
@@ -45,6 +44,17 @@ nav ul li a{
     margin-left: 30px;
     text-decoration: none;
     font-family: 'poppins',sans-serif;
+}
+.menu-toggle{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1.6rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
 }
 section{
     width: 100%;
@@ -135,7 +145,7 @@ section{
 .hr-tag{
     width: 300px;
     margin-top: 3px;
-    margin-left: 480px;
+    margin: 3px auto 0;
     height: 2px;
     background-color: #22160f;
 }
@@ -237,10 +247,22 @@ figure:hover figcaption{
     opacity: 1;
 }
 /* BANNER SECTION */
+.banner{
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+}
+.banner .banner-img{
+   display: block;
+   width: 100%;
+   height: auto;
+}
 .banner-btn{
-    margin-top: 30%;
     position: absolute;
+    top: 80%;
     left: 7%;
+    transform: translateY(-50%);
+    margin: 0;
 }
 .banner .banner-btn a:hover{
     background-color: #453b32;
@@ -248,27 +270,21 @@ figure:hover figcaption{
     
 }
 .banner .banner-btn a{
-    padding: 15px 30px;
+    padding: clamp(4px, 2.6vw, 15px) clamp(8px, 5vw, 30px);
     background: #22160f;
     color: #fff;
     border-radius: 40px;
     font-weight: 500;
     letter-spacing: 1px;
     text-decoration: none;
-    position: relative;
-    left: 20%;
-    margin-top: 30%;
-
-}
-.banner .banner-img{
-   position: absolute;
-   width: 96%;
-   margin-top: 100px;
-   margin-left: 30px;
+    display: inline-block;
+    font-size: clamp(9px, 2.6vw, 16px);
+    line-height: 1.2;
+    white-space: nowrap;
 }
 /* TOP BUNDLE SECTION */
 .top-bundle-head h2{
-    margin-top: 530px;
+    margin-top: 60px;
     text-align: center;
     font-size: 38px;
     font-weight: 500;
@@ -280,7 +296,7 @@ figure:hover figcaption{
 .top-bundle-head .hr-tag{
     width: 300px;
     margin-top: 3px;
-    margin-left: 480px;
+    margin: 3px auto 0;
     height: 2px;
     background-color: #22160f;
 }
@@ -367,27 +383,31 @@ opacity: 0.6;
    }
 }
 .connect{
-    padding: 40px;
-    margin: 10px 570px 30px 100px;
+    padding: 20px 40px 0;
     color: #22160f;
-    position: absolute;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
 }
 .connect .connect-text{
-    margin-top: 50px;
-    margin-bottom: 100px;
-
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-weight: 500;
 }
 .connect-input{
-    position: relative;
-    margin-left: 53%;
-    margin-top: 90px;
+    max-width: 500px;
+    width: 90%;
+    margin: 20px auto 60px;
+    text-align: center;
 }
 .connect-input .input-text{
     border: none;
     border-bottom: 1px solid #463227;
     background: transparent;
-    width: 80%;
+    width: 100%;
     height: 30px;
+    text-align: center;
 }
 .input-text::placeholder{
     font-size: 16px;
@@ -405,7 +425,7 @@ opacity: 0.6;
 .hr-tag{
     width: 300px;
     margin-top: 3px;
-    margin-left: 480px;
+    margin: 3px auto 0;
     height: 2px;
     background-color: #22160f;
 }
@@ -426,11 +446,23 @@ opacity: 0.6;
     overflow: hidden;
     transition: all 0.5s;
     border-radius: 10px;
-    height: 250px;
+    min-height: 250px;
     
 }
 .contents .cards:hover{
     box-shadow: 0px 20px 50px -10px #453b32;
+}
+@media (max-width: 850px){
+   .contents .cards{
+    flex-basis: 46%;
+   }
+}
+@media (max-width: 570px){
+   .contents .cards{
+    flex-basis: 100%;
+    min-height: auto;
+    padding-bottom: 20px;
+   }
 }
 .details .cards{
     font-size: 22px;
@@ -589,4 +621,226 @@ opacity: 0.6;
   .footer-links {
     gap: 2.5rem;
   }
+}
+/* =========================================================
+   RESPONSIVENESS
+   ========================================================= */
+
+/* Prevent any accidental horizontal scroll on small screens */
+html, body{
+    overflow-x: hidden;
+}
+img{
+    max-width: 100%;
+}
+
+/* ---------- Tablets & small laptops (max-width: 992px) ---------- */
+@media (max-width: 992px){
+    nav ul{
+        width: auto;
+        gap: 10px;
+    }
+    nav ul li a{
+        margin-left: 15px;
+        font-size: 0.95rem;
+    }
+    .content .textBox h2{
+        font-size: 3em;
+    }
+    .content .imgBox{
+        width: 320px;
+    }
+}
+
+/* ---------- Tablets / mobile nav breakpoint (max-width: 850px) ---------- */
+@media (max-width: 850px){
+    .menu-toggle{
+        display: flex;
+    }
+    nav ul{
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #2a1d16;
+        opacity: 1;
+        padding-top: 40px;
+        transform: translateX(-100%);
+        transition: transform 0.35s ease-in-out;
+    }
+    nav ul.active{
+        transform: translateX(0);
+    }
+    nav ul li a{
+        margin: 15px 0;
+        font-size: 1.2rem;
+        display: block;
+    }
+
+    section{
+        flex-direction: column;
+        min-height: auto;
+        padding: 110px 25px 60px;
+        text-align: center;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .content .textBox{
+        max-width: 100%;
+    }
+    .content .textBox h2{
+        font-size: 2.4em;
+    }
+    .content .imgBox{
+        width: 100%;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .content .imgBox img{
+        max-width: 260px;
+    }
+    .sci{
+        position: static;
+        transform: none;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 25px;
+    }
+    .sci li a{
+        margin: 0 10px;
+    }
+
+    .collection{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .container{
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    .connect{
+        padding: 20px;
+    }
+    .connect .connect-text{
+        font-size: 1.3rem;
+    }
+}
+
+/* ---------- Small phones (max-width: 570px) ---------- */
+@media (max-width: 570px){
+    .logo{
+        height: 55px;
+        width: 70px;
+    }
+    .collecthead h2,
+    .connect-head h2{
+        font-size: 30px;
+    }
+    .top-bundle-head h2{
+        font-size: 28px;
+    }
+    figure{
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        padding: 0;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 12px auto;
+    }
+    figure img{
+        position: static;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    /* Hover-only caption doesn't work reliably on touch devices, hide on mobile */
+    figcaption{
+        display: none;
+    }
+    .figtext,
+    .figtext-g{
+        position: static;
+        margin: 10px 0 0;
+        width: 100%;
+        text-align: center;
+    }
+    .figtext a,
+    .figtext-g a{
+        font-size: 16px;
+    }
+    .collection{
+        justify-content: center;
+    }
+
+    /* Product / bundle cards: 2 per row, centered */
+    .container .contents{
+        justify-content: center;
+    }
+    .contents .card{
+        flex-basis: 44%;
+        max-width: 46%;
+        width: 46%;
+        margin: 8px 2%;
+    }
+
+    .banner{
+        margin-top: 20px;
+    }
+    .footer-top{
+        padding: 3rem 1.5rem 2rem;
+    }
+    .footer-links{
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .footer-content{
+        gap: 2rem;
+    }
+    .contact-form{
+        padding: 1.5rem 1.5rem 1.75rem;
+    }
+}
+
+/* ---------- Services cards (Free Shipping / Premium Quality / Gift Wrap): 1 per row, centered on mobile ---------- */
+@media (max-width: 700px){
+    .contents .cards{
+        flex-basis: 100%;
+        max-width: 320px;
+        width: 100%;
+        margin: 10px auto;
+    }
+}
+
+/* ---------- Very small phones (max-width: 380px) ---------- */
+@media (max-width: 380px){
+    .content .textBox h2{
+        font-size: 2em;
+    }
+    .content .textBox p{
+        font-size: 0.9rem;
+    }
+    .connect-input .input-text{
+        width: 100%;
+    }
+    figure img{
+        width: 170px;
+        height: 170px;
+    }
+    .contents .card{
+        flex-basis: 100%;
+        max-width: 300px;
+        width: 100%;
+        margin: 8px auto;
+    }
 }
